@@ -8,19 +8,18 @@ const transcript = document.querySelector("aside")
 
 form.addEventListener("submit", function(event){ 
     event.preventDefault()  //prevent reload
-    /*
-    alert(
-        "name: " + name.value + "\n" +
-        "roll: " + roll.value + "\n" +
-        "address: " + address.value + "\n"
-    )*/
-
+    
     if(Number(roll.value) < 0)  //explicit type casting in javascript
     {
         alert("Please enter valid roll no")
         return;
     }
 
+    UpdateTranscript();
+})
+
+
+function UpdateTranscript(){
     transcript.innerHTML = `
         <h2> Transcript </h2>
         <dl class = "details">
@@ -34,4 +33,4 @@ form.addEventListener("submit", function(event){
             <dd>${address.value}</dd>
         </dl>
     `
-})
+}
